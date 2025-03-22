@@ -35,7 +35,7 @@ class ApplicationMain
 		ManifestResources.init(config);
 		#end
 
-		app.meta["build"] = "1";
+		app.meta["build"] = "2";
 		app.meta["company"] = "ChickenSwimmer2020";
 		app.meta["file"] = "DynamicOS";
 		app.meta["name"] = "DynamiOS";
