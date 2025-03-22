@@ -1,6 +1,10 @@
 export/hl/bin/assets/fonts/SEGMDL2.TTF
+export/hl/bin/assets/fonts/SegUIVar.ttf
 export/hl/bin/assets/icons/explorer.png
+export/hl/bin/assets/icons/explorer_wincow.png
 export/hl/bin/assets/ui/buttonSQR.png
+export/hl/bin/assets/ui/button_window_shell_windowcommands.png
+export/hl/bin/assets/ui/button_window_shell_windowcommands_close.png
 export/hl/bin/flixel/sounds/beep.ogg
 export/hl/bin/flixel/sounds/flixel.ogg
 export/hl/bin/flixel/fonts/nokiafc22.ttf

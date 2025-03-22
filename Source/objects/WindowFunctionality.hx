@@ -51,7 +51,7 @@ class WindowFunctionality extends FlxSpriteGroup{
      */
     public function win_EXPLORER(){
         functionran_EX = true;
-        bg = new FlxSprite(par.x, par.y).makeGraphic(1, 1, FlxColor.WHITE);
+        bg = new FlxSprite(par.x, par.y).makeGraphic(1, 1, FlxColor.BLACK);
         bg.setGraphicSize(par.window.width, par.window.height);
         bg.updateHitbox();
         everything.add(bg);
@@ -63,7 +63,7 @@ class WindowFunctionality extends FlxSpriteGroup{
         if(par != null){
             if(functionran_EX){
                 bg.setPosition(par.x, par.y);
-                par.maximized && !par.fullscreen ? bg.setGraphicSize(par.window.width, par.window.height - 20) : bg.setGraphicSize(par.window.width, par.window.height - 20); bg.y += 20;
+                par.maximized && !par.fullscreen ? bg.setGraphicSize(par.window.width, par.window.height - 20) : bg.setGraphicSize(par.window.width - 2, par.window.height - 21); bg.y += 20; bg.x += 1;
                 bg.updateHitbox();
             }else{
                 win_EXPLORER(); //force open once parent window isnt null, but only runs once shince functionran_EX is set to true.

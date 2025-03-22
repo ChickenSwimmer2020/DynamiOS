@@ -5,6 +5,7 @@ import objects.WindowFunctionality;
 typedef WindowProperties = {
     ?_bgColor:FlxColor,
     ?_title:String,
+    ?_icon:FlxGraphicAsset,
     ?_resizable:Bool,
     ?_canBeMinimized:Bool,
     ?_canBeMaximized:Bool,
@@ -21,6 +22,7 @@ class Window extends FlxSpriteGroup{
     var minimizeButton:FlxButton;
     var maximizeButton:FlxButton;
     var title:FlxText;
+    var icon:FlxSprite;
     public var internalwindow:WindowFunctionality;
     
     //window definition & shtuff
@@ -42,40 +44,47 @@ class Window extends FlxSpriteGroup{
         #else
         dragLocation.visible = false;
         #end
-        this.add(window);
-        this.add(dragLocation);
-        closeButton = new FlxButton(this.width - 20, 0, "", ()->{ //the x
+        add(window);
+        add(dragLocation);
+        closeButton = new FlxButton(width - 20, 0, "", ()->{ //the x
             closeWindow();
         });
-        closeButton.loadGraphic('assets/ui/buttonSQR.png', true, 20, 20);
+        closeButton.loadGraphic('assets/ui/button_window_shell_windowcommands_close.png', true, 20, 20);
         closeButton.label.font = 'assets/fonts/SEGMDL2.TTF';
-        this.add(closeButton);
+        add(closeButton);
        
-        maximizeButton = new FlxButton(this.width - 40, 0, "", ()->{ //window icon
+        maximizeButton = new FlxButton(width - 40, 0, "", ()->{ //window icon
             trace('window should be maximized');
             maximized = !maximized; //toggle, if maximized, then minimize, if minimized, then maximize. simple and doesnt neet a big ifelse code block.
         });
-        maximizeButton.loadGraphic('assets/ui/buttonSQR.png', true, 20, 20);
+        maximizeButton.loadGraphic('assets/ui/button_window_shell_windowcommands.png', true, 20, 20);
         maximizeButton.label.font = 'assets/fonts/SEGMDL2.TTF';
-        this.add(maximizeButton);
+        maximizeButton.label.color = FlxColor.BLACK;
+        add(maximizeButton);
 
-        minimizeButton = new FlxButton(this.width - 60, 0, "", ()->{ //that one minus icon
+        minimizeButton = new FlxButton(width - 60, 0, "", ()->{ //that one minus icon
             trace('window should be minimized');
         });
-        minimizeButton.loadGraphic('assets/ui/buttonSQR.png', true, 20, 20);
+        minimizeButton.loadGraphic('assets/ui/button_window_shell_windowcommands.png', true, 20, 20);
         minimizeButton.label.font = 'assets/fonts/SEGMDL2.TTF';
-        this.add(minimizeButton);
-        title = new FlxText(0, 0, this.width, Properties._title);
-        this.add(title);
+        minimizeButton.label.color = FlxColor.BLACK;
+        add(minimizeButton);
+        title = new FlxText(20, 0, width, Properties._title);
+        title.size = 12;
+        title.color = FlxColor.BLACK;
+        title.font = 'assets/fonts/SegUIVar.TTF';
+        add(title);
+        icon = new FlxSprite(2, 2).loadGraphic(Properties._icon);
+        add(icon);
+        scale.set(0.2,0.2);
+        alpha = 0;
 
-        this.scale.set(0.2,0.2);
-        this.alpha = 0;
 
         FlxTween.tween(this, {"scale.x": 1, "scale.y": 1, alpha: 1}, 0.1, { ease: FlxEase.expoOut, onComplete: function(twn:FlxTween) { trace('done'); #if debug dragLocation.alpha = 0.25; #end }});
 
 
 
-        this.scrollFactor.set();
+        scrollFactor.set();
     }
 
     public function loadUI(window:Window, Properties:WindowProperties){
@@ -84,30 +93,36 @@ class Window extends FlxSpriteGroup{
     }
 
     public function closeWindow(){
-        FlxTween.tween(this, {"scale.x": 0, "scale.y": 0, alpha: 0}, 0.2, { ease: FlxEase.expoOut, onComplete: function(twn:FlxTween) { this.destroy(); }});
+        FlxTween.tween(this, {"scale.x": 0, "scale.y": 0, alpha: 0}, 0.2, { ease: FlxEase.expoOut, onComplete: function(twn:FlxTween) { destroy(); }});
     }
 
     override public function update(elapsed:Float){
         super.update(elapsed);
+
+        if(FlxG.mouse.overlaps(closeButton)){
+            closeButton.label.color = FlxColor.WHITE;
+        }else{
+            closeButton.label.color = FlxColor.BLACK;
+        }
 
         if(internalwindow != null){
             internalwindow.update(elapsed);
             internalwindow.alpha = 1;
         }
 
-        this.maximized && !this.fullscreen ? maximizeButton.label.text = "" : maximizeButton.label.text = "";
+        maximized && !fullscreen ? maximizeButton.label.text = "" : maximizeButton.label.text = "";
 
-        if(Global.currentlySelectedWindow == this.ID){
+        if(Global.currentlySelectedWindow == ID){
             if(FlxG.mouse.overlaps(dragLocation)){
                 if(FlxG.mouse.pressed){
-                    this.x = FlxG.mouse.x;
-                    this.y = FlxG.mouse.y;
+                    x = FlxG.mouse.x;
+                    y = FlxG.mouse.y;
                     windowHeld = true;
                 }
             }else{
                 if(windowHeld){
-                    this.x = FlxG.mouse.x;
-                    this.y = FlxG.mouse.y;
+                    x = FlxG.mouse.x;
+                    y = FlxG.mouse.y;
                 }
             }
             if(FlxG.mouse.released){

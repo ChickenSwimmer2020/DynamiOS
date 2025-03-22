@@ -69,6 +69,7 @@ import sys.FileSystem;
 
 		#if (openfl && !flash && !display)
 		openfl.text.Font.registerFont (__ASSET__OPENFL__assets_fonts_segmdl2_ttf);
+		openfl.text.Font.registerFont (__ASSET__OPENFL__assets_fonts_seguivar_ttf);
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_nokiafc22_ttf);
 		openfl.text.Font.registerFont (__ASSET__OPENFL__flixel_fonts_monsterrat_ttf);
 		
@@ -93,8 +94,12 @@ import sys.FileSystem;
 #if flash
 
 @:keep @:bind @:noCompletion #if display private #end class __ASSET__assets_fonts_segmdl2_ttf extends null { }
+@:keep @:bind @:noCompletion #if display private #end class __ASSET__assets_fonts_seguivar_ttf extends null { }
 @:keep @:bind @:noCompletion #if display private #end class __ASSET__assets_icons_explorer_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind @:noCompletion #if display private #end class __ASSET__assets_icons_explorer_wincow_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind @:noCompletion #if display private #end class __ASSET__assets_ui_buttonsqr_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind @:noCompletion #if display private #end class __ASSET__assets_ui_button_window_shell_windowcommands_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind @:noCompletion #if display private #end class __ASSET__assets_ui_button_window_shell_windowcommands_close_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind @:noCompletion #if display private #end class __ASSET__flixel_sounds_beep_ogg extends null { }
 @:keep @:bind @:noCompletion #if display private #end class __ASSET__flixel_sounds_flixel_ogg extends null { }
 @:keep @:bind @:noCompletion #if display private #end class __ASSET__flixel_fonts_nokiafc22_ttf extends null { }
@@ -182,11 +187,13 @@ import sys.FileSystem;
 @:keep @:image("C:/Users/justt/OneDrive/Documents/HAXE/flixel-addons/3,3,2/assets/images/transitions/square.png") @:noCompletion #if display private #end class __ASSET__flixel_images_transitions_square_png extends lime.graphics.Image {}
 
 @:keep @:noCompletion #if display private #end class __ASSET__assets_fonts_segmdl2_ttf extends lime.text.Font { public function new () { __fontPath = ManifestResources.rootPath + "assets/fonts/SEGMDL2.TTF"; name = "Segoe MDL2 Assets"; super (); }}
+@:keep @:noCompletion #if display private #end class __ASSET__assets_fonts_seguivar_ttf extends lime.text.Font { public function new () { __fontPath = ManifestResources.rootPath + "assets/fonts/SegUIVar.ttf"; name = "Segoe UI Variable"; super (); }}
 
 
 #else
 
 @:keep @:expose('__ASSET__assets_fonts_segmdl2_ttf') @:noCompletion #if display private #end class __ASSET__assets_fonts_segmdl2_ttf extends lime.text.Font { public function new () { #if !html5 __fontPath = "assets/fonts/SEGMDL2.TTF"; #else ascender = null; descender = null; height = null; numGlyphs = null; underlinePosition = null; underlineThickness = null; unitsPerEM = null; #end name = "Segoe MDL2 Assets"; super (); }}
+@:keep @:expose('__ASSET__assets_fonts_seguivar_ttf') @:noCompletion #if display private #end class __ASSET__assets_fonts_seguivar_ttf extends lime.text.Font { public function new () { #if !html5 __fontPath = "assets/fonts/SegUIVar.ttf"; #else ascender = null; descender = null; height = null; numGlyphs = null; underlinePosition = null; underlineThickness = null; unitsPerEM = null; #end name = "Segoe UI Variable"; super (); }}
 @:keep @:expose('__ASSET__flixel_fonts_nokiafc22_ttf') @:noCompletion #if display private #end class __ASSET__flixel_fonts_nokiafc22_ttf extends lime.text.Font { public function new () { #if !html5 __fontPath = "flixel/fonts/nokiafc22.ttf"; #else ascender = null; descender = null; height = null; numGlyphs = null; underlinePosition = null; underlineThickness = null; unitsPerEM = null; #end name = "Nokia Cellphone FC Small"; super (); }}
 @:keep @:expose('__ASSET__flixel_fonts_monsterrat_ttf') @:noCompletion #if display private #end class __ASSET__flixel_fonts_monsterrat_ttf extends lime.text.Font { public function new () { #if !html5 __fontPath = "flixel/fonts/monsterrat.ttf"; #else ascender = null; descender = null; height = null; numGlyphs = null; underlinePosition = null; underlineThickness = null; unitsPerEM = null; #end name = "Monsterrat"; super (); }}
 
@@ -197,11 +204,13 @@ import sys.FileSystem;
 
 #if html5
 @:keep @:expose('__ASSET__OPENFL__assets_fonts_segmdl2_ttf') @:noCompletion #if display private #end class __ASSET__OPENFL__assets_fonts_segmdl2_ttf extends openfl.text.Font { public function new () { name = "Segoe MDL2 Assets"; super (); }}
+@:keep @:expose('__ASSET__OPENFL__assets_fonts_seguivar_ttf') @:noCompletion #if display private #end class __ASSET__OPENFL__assets_fonts_seguivar_ttf extends openfl.text.Font { public function new () { name = "Segoe UI Variable"; super (); }}
 @:keep @:expose('__ASSET__OPENFL__flixel_fonts_nokiafc22_ttf') @:noCompletion #if display private #end class __ASSET__OPENFL__flixel_fonts_nokiafc22_ttf extends openfl.text.Font { public function new () { __fromLimeFont (new __ASSET__flixel_fonts_nokiafc22_ttf ()); super (); }}
 @:keep @:expose('__ASSET__OPENFL__flixel_fonts_monsterrat_ttf') @:noCompletion #if display private #end class __ASSET__OPENFL__flixel_fonts_monsterrat_ttf extends openfl.text.Font { public function new () { __fromLimeFont (new __ASSET__flixel_fonts_monsterrat_ttf ()); super (); }}
 
 #else
 @:keep @:expose('__ASSET__OPENFL__assets_fonts_segmdl2_ttf') @:noCompletion #if display private #end class __ASSET__OPENFL__assets_fonts_segmdl2_ttf extends openfl.text.Font { public function new () { __fontPath = ManifestResources.rootPath + "assets/fonts/SEGMDL2.TTF"; name = "Segoe MDL2 Assets"; super (); }}
+@:keep @:expose('__ASSET__OPENFL__assets_fonts_seguivar_ttf') @:noCompletion #if display private #end class __ASSET__OPENFL__assets_fonts_seguivar_ttf extends openfl.text.Font { public function new () { __fontPath = ManifestResources.rootPath + "assets/fonts/SegUIVar.ttf"; name = "Segoe UI Variable"; super (); }}
 @:keep @:expose('__ASSET__OPENFL__flixel_fonts_nokiafc22_ttf') @:noCompletion #if display private #end class __ASSET__OPENFL__flixel_fonts_nokiafc22_ttf extends openfl.text.Font { public function new () { __fromLimeFont (new __ASSET__flixel_fonts_nokiafc22_ttf ()); super (); }}
 @:keep @:expose('__ASSET__OPENFL__flixel_fonts_monsterrat_ttf') @:noCompletion #if display private #end class __ASSET__OPENFL__flixel_fonts_monsterrat_ttf extends openfl.text.Font { public function new () { __fromLimeFont (new __ASSET__flixel_fonts_monsterrat_ttf ()); super (); }}
 

@@ -26,7 +26,7 @@ class Playstate extends FlxState{
         SHELLCAM.bgColor = FlxColor.TRANSPARENT;
         FlxG.cameras.add(SHELLCAM, false);
 
-        var icon:DesktopIcon = new DesktopIcon(500, 500, 'assets/icons/explorer.png', 'Files', {_bgColor: FlxColor.WHITE, _title: 'File Explorer', _program: 'explorer'});
+        var icon:DesktopIcon = new DesktopIcon(500, 500, 'assets/icons/explorer.png', 'Files', {_bgColor: FlxColor.WHITE, _title: 'File Explorer', _program: 'explorer', _icon: 'assets/icons/explorer_wincow.png'});
         add(icon);
 
         var testspri:FlxSprite = new FlxSprite(0, 0).makeGraphic(100, 100, FlxColor.RED);
@@ -38,12 +38,12 @@ class Playstate extends FlxState{
         var createWindow:FlxButton = new FlxButton(0, 0, "Create Window", ()->{
             test1 = new Window(640, 480, {_bgColor: FlxColor.RED, _title: array[new FlxRandom().int(0, 1)]});
             add(test1);
-            test1.loadUI(test1, {_functionality: new WindowFunctionality(test1.x, test1.y, 'explorer', test1)});
+            test1.loadUI(test1, {_functionality: new WindowFunctionality(test1.x, test1.y, 'explorer', test1), _icon: 'assets/icons/explorer_wincow.png'});
         });
         add(createWindow);
 
         var taskbar:TaskBar = new TaskBar(FlxG.width, 20, {_bgColor: FlxColor.GRAY});
-        taskbar.y = 1060;
+        taskbar.y = FlxG.height - taskbar.height + 80;
         add(taskbar);
         taskbar.camera = SHELLCAM;
 
