@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+    <app title="DynamiOS" file="DynamicOS" main="Main" version="0.0.1" company="ChickenSwimmer2020"/>
+
+    <app preloader="flixel.system.FlxPreloader"/>
+
+    <set name="SWF_VERSION" value="11.8"/>
+    <window if="hl" width="1920" height="1080" fps="60" background="#000000" hardware="true" vsync="false"/>
+
+    <set name="BUILD_DIR" value="export"/>
+    
+    <source path="source"/>
+    <assets path="assets"/>
+
+    <undefine name="openfl-disable-handle-error"/>
+    <define name="openfl_enable_handle_error"/>
+
+	<haxelib name="lime"/>
+	<haxelib name="openfl"/>
+	<haxelib name="flixel"/>
+	<haxelib name="flixel-tools"/>
+	<haxelib name="flixel-ui" />
+	<haxelib name="flixel-addons" />
+
+    <haxedef name="FLX_NO_FOCUS_LOST_SCREEN" />
+    <haxedef name="FLX_NO_MOUSE" if="mobile"/>
+    <haxedef name="FLX_NO_KEYBOARD" if="mobile"/>
+    <haxedef name="FLX_NO_TOUCH" if="desktop"/>
+    <haxedef name="FLX_NO_DEBUG" unless="debug"/>
+    <haxedef name="NAPE_RELEASE_BUILD" unless="debug"/>
+</project>
