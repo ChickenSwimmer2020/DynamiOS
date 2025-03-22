@@ -42,9 +42,9 @@ class Playstate extends FlxState{
         });
         add(createWindow);
 
-        var taskbar:TaskBar = new TaskBar(FlxG.width, 20, {_bgColor: FlxColor.GRAY});
-        taskbar.y = FlxG.height - taskbar.height + 80;
+        var taskbar:TaskBar = new TaskBar(FlxG.width, 20, {_bgColor: FlxColor.WHITE});
         add(taskbar);
+        taskbar.y = FlxG.height - 20;
         taskbar.camera = SHELLCAM;
 
     }
