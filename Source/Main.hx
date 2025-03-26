@@ -1,11 +1,13 @@
 package;
 
+import openfl.display.Screen;
+
 class Main extends Sprite{
     var game:FlxGame;
 
     public function new(){
         super();
-        game = new FlxGame(2560, 1440, Playstate, 60, 60, false, false);
+        game = new FlxGame(Std.int(Screen.mainScreen.bounds.width), Std.int(Screen.mainScreen.bounds.height), Login, 60, 60, false, false);
 
         addChild(game);
     }
