@@ -23,6 +23,7 @@ class Login extends FlxState{
     public var password2:String = '';
     public var textlenght:Int;
     public var attempts:Int = 3;
+    public var run:Bool = false;
 
     override public function create(){
         super.create();
@@ -97,10 +98,13 @@ class Login extends FlxState{
                     obj.active = false;
                 }
             }
-            var text:FlxText = new FlxText(0, 0, 0, 'YOU HAVE BEEN LOCKED OUT.\nplease restart the application and try again', 48, true);
-            text.screenCenter(XY);
-            text.alignment = CENTER;
-            add(text);
+            if(!run){
+                var text:FlxText = new FlxText(0, 0, 0, 'YOU HAVE BEEN LOCKED OUT.\nplease restart the application and try again', 48, true);
+                text.screenCenter(XY);
+                text.alignment = CENTER;
+                add(text);
+                run = true;
+            }
         }
     }
 

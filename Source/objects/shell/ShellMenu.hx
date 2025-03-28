@@ -84,8 +84,4 @@ class ShellMenu extends FlxSpriteGroup{
             }
         }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> a93b6642acc2241fdc84c9194ee85bf87074d88b
